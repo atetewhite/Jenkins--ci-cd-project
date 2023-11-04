@@ -44,7 +44,7 @@ pipeline {
             script {
                 //Send email for successful build
                 mail to: 'kelvinatete@yahoo.com,'
-                     subject: "Build Successful - ${currentBuild.fullDisplayName}",
+            }          subject: "Build Successful - ${currentBuild.fullDisplayName}",
                      body: "Congratulations! The build was successful.\n\nCheck console output at ${Build_URL}"
             }
         }
