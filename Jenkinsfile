@@ -56,5 +56,5 @@ pipeline {
                 body: "Oops! The build failed.\n\nCheck console output at ${Build_URL}"
             }    
         }
-
     }
+}
