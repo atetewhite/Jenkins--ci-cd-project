@@ -19,7 +19,7 @@ pipeline {
                 echo 'Running tests'
                 // Define test steps here
                 sh 'mvn test'
-                stash (name: 'jenkinsProject', includes: "target/*war")
+                stash (name: 'Jenkins--ci-cd-project', includes: "target/*war")
             }
         }
         stage('Deploy') {
@@ -29,7 +29,7 @@ pipeline {
             steps {
                 echo 'Deploying the application'
                 // Define deployment steps here
-                unstash 'JenkinsProject'
+                unstash 'Jenkins--ci-cd-project'
                 sh "~/apache-tomcat-7.0.94/bin/startup.sh"
                 sh "sudo rm -rf ~/apache*/webapp/*war"
                 sh "sudo mv target/.war ~/apache/webapps/"
